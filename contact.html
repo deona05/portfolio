@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="randcss.css">
+      <title>Deona Carol Alvares- Contact</title>
+  </head>
+  <body>
+      <header class="header">
+          <a href="#home" class="logo">Deona Carol Alvares</a>
+
+          <i class="fa-solid fa-bars" id="menu-icon"></i> 
+
+          <nav class="navbar">
+              <a href="randan.html">Home</a>
+              <a href="resume.html">Resume</a>
+              <a href="projects.html">Projects</a>
+              <a href="contact.html">Contact</a>
+              
+          </nav>
+      </header>
+
+      <section class="contact-section">
+        <div class="contact-info">
+          <h2>Contact</h2>
+          <p>Looking forward to hearing from you</p>
+
+          <p><strong>Phone</strong><br>9964374107</p>
+          <p><strong>Email</strong><br>deonacarol@gmail.com</p>
+          <p><strong>linkedin</strong><br>www.linkedin.com/in/deonacarol</p>
+          <p><strong>GitHub</strong><br>github.com/deona05</p>
+        </div>
+
+        <form class="contact-form" name="submit-to-google-sheet" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name *</label>
+              <input type="text" name="Fname" id="first-name" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name *</label>
+              <input type="text" name="Lname" id="last-name" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" name="Email" id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" name="Subject" id="subject">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" rows="5"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </section>
+      <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+      <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+      <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx14Q7BtiiHRxKxmIH9BTpUW7pHmfCvuIsZOEnM9NK_c1S8NBasoKcZMmlFGF2Pv8m8hg/exec';
+        const form = document.forms['submit-to-google-sheet'];
+
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then(response => {
+          alert('Form submitted successfully!');
+          form.reset();
+          })
+          .catch(error => console.error('Error!', error.message));
+          });
+        });
+      </script>
+
+  </body>
+</html>
+
